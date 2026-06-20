@@ -1,0 +1,36 @@
+<?php
+class Database {
+    private $host = 'localhost';
+    private $db_name = 'supereme_legal';
+    private $user = 'root';
+    private $password = '';
+    private $conn;
+
+    public function connect() {
+        $this->conn = null;
+
+        try {
+            $this->conn = new mysqli(
+                $this->host,
+                $this->user,
+                $this->password,
+                $this->db_name
+            );
+
+            if ($this->conn->connect_error) {
+                die('Connection Error: ' . $this->conn->connect_error);
+            }
+
+            $this->conn->set_charset('utf8mb4');
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+
+        return $this->conn;
+    }
+
+    public function getConnection() {
+        return $this->connect();
+    }
+}
+?>
