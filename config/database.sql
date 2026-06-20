@@ -183,7 +183,3 @@ CREATE INDEX idx_cases_year ON law_cases(year);
 CREATE INDEX idx_judgments_date ON judgments(judgment_date);
 CREATE INDEX idx_suggestions_user ON suggestions(user_id);
 CREATE INDEX idx_suggestions_status ON suggestions(status);
-
--- Insert Sample Admin User (password: admin@123)
-INSERT INTO users (username, email, password_hash, full_name, is_admin, is_verified) 
-VALUES ('admin', 'admin@supereme.com', '$2y$10$abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP', 'Admin User', 1, 1);
